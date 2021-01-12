@@ -17,7 +17,7 @@ public class SqlConnection {
 
    public Boolean addEmployee(Employee employee) {
       try {
-         int id = getLastId();
+         int id = getLastIdEmployee();
          if(id == -1) id = 0;
          else id++;
          String strInsert = "INSERT INTO employee (id, name, surname, login, password, payout, position) VALUES (?,?,?,?,?,?,?);";
@@ -37,7 +37,7 @@ public class SqlConnection {
       }
    }
 
-   private int getLastId() {
+   private int getLastIdEmployee() {
       try {
          Statement stmt = conn.createStatement();
          String strSelect = "select MAX(id) from employee";
